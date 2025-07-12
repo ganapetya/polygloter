@@ -1,6 +1,6 @@
-# Shakti Actors
+# polygloter
 
-A Scala SBT project demonstrating Akka Actors with the latest stable Akka version (2.8.8).
+basic frontend + basic actors structure for full featured language learner application 
 
 ## Features
 
