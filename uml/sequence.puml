@@ -1,0 +1,31 @@
+@startuml
+actor User
+participant "UIActor" as UI
+participant "SessionManager" as SM
+participant "TranslatorProxy" as TP
+participant "MorphologyProxy" as MP
+participant "WordTracker" as WT
+participant "TrainerProxy" as TRP
+participant "translator-api (Python)" as TA
+participant "morphology-api (Python)" as MA
+participant "trainer-api (Python)" as TRA
+database "PostgreSQL" as DB
+
+User -> UI : submitSentence(sentence)
+UI -> SM : startSession()
+UI -> TP : requestTranslation(sentence)
+TP -> TA : POST /translate
+TA --> TP : translations
+TP -> WT : updateWords(translations)
+TP -> UI : displayTranslations
+
+UI -> MP : analyzeSentence(sentence)
+MP -> MA : POST /analyze
+MA --> MP : analysisResult
+MP -> DB : storeMorphology
+
+UI -> TRP : requestTraining(word)
+TRP -> TRA : POST /generate
+TRA --> TRP : puzzleData
+TRP -> UI : displayTraining(puzzleData)
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+actor User
+participant "UIActor" as UI
+participant "SessionManager" as SM
+participant "WordTracker" as WT
+participant "TranslatorProxy" as TP
+participant "MorphologyProxy" as MP
+participant "TrainerProxy" as TRP
+participant "translator-api" as TA
+participant "morphology-api" as MA
+
+box "AkkaSystem" #LightBlue
+participant UI
+participant SM
+participant WT
+participant TP
+participant MP
+participant TRP
+end box
+
+User -> UI : submit sentence
+UI -> SM : start session
+UI -> TP : request translations
+UI -> MP : analyze sentence
+UI -> TRP : start exercise
+
+TP -> TA : REST call
+MP -> MA : REST call
+@enduml

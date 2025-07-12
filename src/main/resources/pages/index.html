@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti Polyglot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                Shakti Polyglot
+            </h1>
+            <p>language learning companion</p>
+        </div>
+        
+        <div class="content">
+            <div class="left-panel">
+                <div class="session-info" id="sessionInfo">
+                    Session: <span id="sessionId">Not started</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="inputText">Input Text:</label>
+                    <textarea id="inputText" placeholder="Enter text to translate..." spellcheck="false"></textarea>
+                    <div class="audio-controls">
+                        <button class="listen-btn" id="listenBtn">
+                            🔊 Listen
+                        </button>
+                        <div class="speaking-rate-group">
+                            <label for="speakingRate">Speaking Rate:</label>
+                            <select id="speakingRate" class="speaking-rate-select">
+                                <option value="0.25">Very Slow (0.25x)</option>
+                                <option value="0.5">Slow (0.5x)</option>
+                                <option value="0.75" selected>Normal (0.75x)</option>
+                                <option value="1.0">Fast (1.0x)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="sourceLanguage">Source Language:</label>
+                    <select id="sourceLanguage" style="padding: 10px; border: 2px solid #e1e5e9; border-radius: 6px; font-size: 16px; background: white;">
+                        <option value="no">Norwegian (NO)</option>
+                        <option value="en">English (EN)</option>
+                        <option value="de">German (DE)</option>
+                        <option value="ru">Russian (RU)</option>
+                        <option value="he">Hebrew (HE)</option>
+                        <option value="uk">Ukrainian (UK)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="defaultLanguage">User Default Language:</label>
+                    <select id="defaultLanguage" style="padding: 10px; border: 2px solid #e1e5e9; border-radius: 6px; font-size: 16px; background: white;">
+                        <option value="en" selected>English (EN)</option>
+                        <option value="no">Norwegian (NO)</option>
+                        <option value="de">German (DE)</option>
+                        <option value="ru">Russian (RU)</option>
+                        <option value="he">Hebrew (HE)</option>
+                        <option value="uk">Ukrainian (UK)</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Target Languages:</label>
+                    <div class="language-options">
+                        <!-- Row 1: Russian, English, German -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langRu" value="ru">
+                            <label for="langRu">Russian (RU)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langEn" value="en" checked>
+                            <label for="langEn">English (EN)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langDe" value="de">
+                            <label for="langDe">German (DE)</label>
+                        </div>
+                        <!-- Row 2: Norwegian, Hebrew, Ukrainian -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langNo" value="no">
+                            <label for="langNo">Norwegian (NO)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langHe" value="he">
+                            <label for="langHe">Hebrew (HE)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="langUk" value="uk">
+                            <label for="langUk">Ukrainian (UK)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="translate-btn" id="translateBtn">
+                    🚀 Translate
+                </button>
+            </div>
+            
+            <div class="right-panel">
+                <h3>Translations</h3>
+                <div id="translations" class="translations">
+                    <div class="loading">Enter text and select languages to start translating...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Analysis Panel -->
+    <div id="analysisPanel" class="analysis-panel" style="display: none;">
+        <button id="analyzeBtn" class="analyze-btn" title="Analyze selected text">M</button>
+        <div id="modelName" class="model-name">gpt-3.5-turbo</div>
+    </div>
+
+    <!-- Docked Analysis Results Window -->
+    <div id="analysisWindow" class="analysis-window" style="display: none;">
+        <div class="analysis-header">
+            <h3>Analysis Results</h3>
+            <button id="closeAnalysisBtn" class="close-btn">&times;</button>
+        </div>
+        <div id="analysisContent" class="analysis-content">
+            <div class="loading">Select text and click "M" to start analysis...</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,42 @@
+# sbt and Scala build artifacts
+/target/
+/project/target/
+/project/project/
+
+# Coursier and Ivy cache (dependency resolution)
+.coursier/
+/.ivy2/
+/.cache/
+/lib_managed/
+/src_managed/
+/bin/
+
+# Metals (Scala language server for VS Code and other IDEs)
+.metals/
+.bloop/
+.bsp/
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Mac OS
+.DS_Store
+
+# Logs and misc
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Environment/Secrets
+.env
+.env.*
+
+# Test output
+/test-output/
